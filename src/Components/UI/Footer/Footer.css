@@ -1,0 +1,11 @@
+.footer_main{
+    align-items: center;
+    background-color: black;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+.footer_link{
+    color: white;
+    padding: 10px;
+}

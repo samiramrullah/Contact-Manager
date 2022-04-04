@@ -1,0 +1,21 @@
+.top{
+    display: flex;
+    width: 100%;
+    height: 10%;
+    color: white;
+}
+.down{
+    display: flex;
+    width: 100%;
+    height: 10%;
+    color: white;
+}
+.name{
+    width: 50%;
+}
+.email{
+    width: 50%;
+}
+.address{
+    width: 50%;
+}
