@@ -8,6 +8,7 @@ const Contact = (props) => {
   const [frontshow, setfrontshow] = useState(false);
   const [entredFormData, setentredFormData] = useState(props.formdata);
 
+
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((res) => res.json())
@@ -23,10 +24,11 @@ const Contact = (props) => {
     setbackshow(false);
   };
   const deleteHandler = (id) => {
-    let newArray = entredFormData.filter((item) => item.id !== id);
+    console.log(JSON.parse(localStorage.getItem('contact')));
+    let newArray = JSON.parse(localStorage.getItem('contact')).filter((item) => item.id !== id);
+    localStorage.setItem('contact',JSON.stringify(newArray))
   };
   const contacts = JSON.parse(localStorage.getItem("contact"));
-  console.log(contacts);
   const clearLocalStorageHandler = () => {
     localStorage.removeItem("contact");
     alert("Data Delated Successfully");

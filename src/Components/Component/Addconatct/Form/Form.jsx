@@ -13,9 +13,6 @@ const Form = (props) => {
     if (contact) setallUserdetails(JSON.parse(contact));
   }, []);
 
-  const Errors = { id: "", Name: "", Email: "", address: "", phonenumber: "" };
-  let status = true;
-
   const nameChangeHandler = (event) => {
     setname(event.target.value);
   };
@@ -30,7 +27,7 @@ const Form = (props) => {
   };
   const fromSubmitHandler = (event) => {
     event.preventDefault();
-    formValidate();
+
     const formData = {
       id: Math.trunc(Math.random() * 10000),
       Name: name,
@@ -38,24 +35,6 @@ const Form = (props) => {
       Address: address,
       Contact_Number: contact,
     };
-    function formValidate() {
-      if (!details.fName) {
-        Errors.Name = "First name is required";
-        status = false;
-      }
-      if (!details.lName) {
-        Errors.Email = "Last name is required";
-        status = false;
-      }
-      if (!details.contact) {
-        Errors.address = "Contact is Required";
-        status = false;
-      }
-      if (!details.email) {
-        Errors.phonenumber = "Email is required";
-        status = false;
-      }
-    }
     setdetails(formData);
     setallUserdetails([...allUserdetails, formData]);
     localStorage.setItem(
@@ -67,7 +46,7 @@ const Form = (props) => {
     setaddress("");
     setcontact("");
   };
-  console.log(allUserdetails, "allUserdetailsallUserdetails");
+  // console.log(error.message,'formformforfmrfmrofmrof');
   return (
     <div className="from_main">
       <form onSubmit={fromSubmitHandler}>
@@ -76,19 +55,16 @@ const Form = (props) => {
             <label className="lbl">Name</label>
             <input
               className="input_form"
+              required
               onChange={nameChangeHandler}
               type={"text"}
               value={name}
             ></input>
-            {!status && !status === true && (
-              <div className="Error">
-                <p>{Errors?.Name}</p>
-              </div>
-            )}
           </div>
           <div className="l_name">
             <label className="lbl">Email</label>
             <input
+              required
               className="input_form"
               onChange={emailChangeHandler}
               type={"email"}
@@ -100,6 +76,7 @@ const Form = (props) => {
           <div className="form_contact">
             <label className="lbl">Address</label>
             <input
+              required
               className="input_form"
               onChange={addressChangehandler}
               type={"text"}
@@ -108,6 +85,7 @@ const Form = (props) => {
           </div>
           <label className="lbl">Contact</label>
           <input
+            required
             className="input_form"
             onChange={conatactChangeHandler}
             type={"number"}

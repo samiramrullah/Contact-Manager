@@ -37,12 +37,11 @@ span{
 }
 .link:hover{
     text-decoration: dotted;
-    background-color:#495e4d;
-    border-radius: 2rem;
+    text-transform: uppercase;
     text-decoration: underline;
 }
 .link_contact:hover{
     text-decoration: underline;
-    background-color:#495e4d;
+    text-transform: uppercase;
     border-radius: 5rem;
 }

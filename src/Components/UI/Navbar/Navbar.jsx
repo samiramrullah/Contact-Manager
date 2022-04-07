@@ -7,15 +7,13 @@ const Navbar = () => {
         <span>C</span>ontact <span>M</span>anager
       </div>
       <div className="navlink">
-        <NavLink className={"link"} to="/">
-          Home
-        </NavLink>
+      <Link className={"link"} to="/">
+          Show Contact
+        </Link>
         <NavLink className={"link"} to="/about">
           About
         </NavLink>
-        <Link className={"link"} to="/contact">
-          Show Contact
-        </Link>
+       
         <NavLink className={"link_contact"} to="/addcontact">
           Add Contact
         </NavLink>
